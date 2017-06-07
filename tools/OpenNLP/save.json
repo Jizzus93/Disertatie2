@@ -1,0 +1,29 @@
+{
+    "annotationList": [
+        {
+            "annotationType": 0,
+            "endOffset": 46,
+            "startOffset": 17
+        },
+        {
+            "annotationType": 0,
+            "endOffset": 158,
+            "startOffset": 47
+        },
+        {
+            "annotationType": 0,
+            "endOffset": 361,
+            "startOffset": 159
+        },
+        {
+            "annotationType": 0,
+            "endOffset": 421,
+            "startOffset": 365
+        },
+        {
+            "annotationType": 0,
+            "endOffset": 543,
+            "startOffset": 422
+        }
+    ]
+}
