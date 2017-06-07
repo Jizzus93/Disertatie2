@@ -94,6 +94,20 @@ void Frontend::on_actionLoad_triggered()
 
 void Frontend::on_textEdit_selectionChanged()
 {
+    static int oldSelectionStart = -1;
+    static int oldSelectionEnd = -1;
+    if(oldSelectionEnd != -1 && oldSelectionStart != -1)
+    {
+        QTextCharFormat fmt;
+        fmt.setBackground(Qt::white);
+        fmt.setFontItalic(false);
+
+        QTextCursor cursor(ui->textEdit->document());
+        cursor.setPosition(oldSelectionStart, QTextCursor::MoveAnchor);
+        cursor.setPosition(oldSelectionEnd, QTextCursor::KeepAnchor);
+        cursor.setCharFormat(fmt);
+    }
+
     QTextCursor tc = ui->textEdit->textCursor();
     tc.select(QTextCursor::WordUnderCursor);
     QString word = tc.selectedText();
@@ -102,9 +116,18 @@ void Frontend::on_textEdit_selectionChanged()
 
     QTextCharFormat fmt;
     fmt.setBackground(Qt::yellow);
+    fmt.setFontItalic(true);
 
     QTextCursor cursor(ui->textEdit->document());
     cursor.setPosition(selectionStart, QTextCursor::MoveAnchor);
     cursor.setPosition(selectionEnd, QTextCursor::KeepAnchor);
     cursor.setCharFormat(fmt);
+
+    oldSelectionStart = selectionStart;
+    oldSelectionEnd = selectionEnd;
+}
+
+void Frontend::on_actionClauses_triggered()
+{
+
 }
