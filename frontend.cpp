@@ -84,4 +84,10 @@ void Frontend::on_actionSave_2_triggered()
 void Frontend::on_actionLoad_triggered()
 {
     //TODO: IMPLEMENT
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Load File"), QString(),
+                tr("JSON Files (*.json);;BIN Files (*.dat)"));
+    Annotation annotation;
+    annotation.loadAnnotation(Annotation::Json, fileName);
+    this->m_annotation = annotation.getEntryList();
+
 }

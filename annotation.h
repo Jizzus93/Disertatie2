@@ -6,9 +6,12 @@
 #include<QJsonObject>
 #include<QList>
 
+
+
 class Annotation{
 public:
     Annotation();
+
     enum SaveFormat{
         Json,Binary
     };

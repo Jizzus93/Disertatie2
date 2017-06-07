@@ -24,7 +24,7 @@ void Annotation::read(const QJsonObject &json)
 {
     this->m_entryList.clear();
 
-    QJsonArray entryArray = json["annotations"].toArray();
+    QJsonArray entryArray = json["annotationList"].toArray();
 
     for(int entryIndex = 0; entryIndex < entryArray.size(); ++entryIndex)
     {
@@ -46,17 +46,15 @@ void Annotation::write(QJsonObject &json) const
         entryArray.append(entryObject);
     }
 
-    json["annotations"] = entryArray;
+    json["annotationList"] = entryArray;
 }
 
 bool Annotation::loadAnnotation(SaveFormat saveFormat, QString fileName)
 {
-    QFile loadFile(saveFormat == Json
-            ? QStringLiteral("save.json")
-            : QStringLiteral("save.dat"));
+    QFile loadFile(fileName);
 
         if (!loadFile.open(QIODevice::ReadOnly)) {
-            qWarning("Couldn't open save file.");
+            qWarning("Couldn't open load file.");
             return false;
         }
 
@@ -73,9 +71,7 @@ bool Annotation::loadAnnotation(SaveFormat saveFormat, QString fileName)
 
 bool Annotation::saveAnnotation(SaveFormat saveFormat, QString fileName) const
 {
-    QFile saveFile(saveFormat == Json
-            ? QStringLiteral("save.json")
-            : QStringLiteral("save.dat"));
+    QFile saveFile(fileName);
 
         if (!saveFile.open(QIODevice::WriteOnly)) {
             qWarning("Couldn't open save file.");

@@ -8,7 +8,7 @@ class AnnotationEntry
 public:
 
     enum EntryType{
-        E_ENTRY_PARAGRAPH = 0,
+        E_ENTRY_CLAUSE = 0,
         E_ENTRY_MAX
     } eEnumType;
 
