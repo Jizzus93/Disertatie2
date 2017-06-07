@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>566</width>
+    <width>750</width>
     <height>501</height>
    </rect>
   </property>
@@ -14,7 +14,7 @@
    <string>Frontend</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>7</x>
@@ -42,7 +42,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>566</width>
+     <width>750</width>
      <height>21</height>
     </rect>
    </property>

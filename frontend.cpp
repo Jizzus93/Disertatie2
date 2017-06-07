@@ -91,3 +91,20 @@ void Frontend::on_actionLoad_triggered()
     this->m_annotation = annotation.getEntryList();
 
 }
+
+void Frontend::on_textEdit_selectionChanged()
+{
+    QTextCursor tc = ui->textEdit->textCursor();
+    tc.select(QTextCursor::WordUnderCursor);
+    QString word = tc.selectedText();
+    int selectionStart = tc.selectionStart();
+    int selectionEnd = tc.selectionEnd();
+
+    QTextCharFormat fmt;
+    fmt.setBackground(Qt::yellow);
+
+    QTextCursor cursor(ui->textEdit->document());
+    cursor.setPosition(selectionStart, QTextCursor::MoveAnchor);
+    cursor.setPosition(selectionEnd, QTextCursor::KeepAnchor);
+    cursor.setCharFormat(fmt);
+}

@@ -32,6 +32,8 @@ private slots:
 
     void on_actionLoad_triggered();
 
+    void on_textEdit_selectionChanged();
+
 private:
     QList<AnnotationEntry> m_annotation;
     Ui::Frontend *ui;
